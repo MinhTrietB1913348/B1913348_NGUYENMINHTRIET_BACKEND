@@ -23,9 +23,9 @@ app.use((req, res, next)=>{
     return next(new ApiError(404, "Resource not found"));
 });
 
-app.use((err, req, res, next)=>{
-    return res.status(err.statusCode || 500).json({
-        message: err.message || "Internal Srever Error",
+app.use((error, req, res, next)=>{
+    return res.status(error.statusCode || 500).json({
+        message: error.message || "Internal Srever Error",
     });
 });
 
